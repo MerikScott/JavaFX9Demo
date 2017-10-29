@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
+public class Main extends Application {
 
     Button button;
 
@@ -20,7 +20,13 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
         button = new Button();
         button.setText("Click me");
-        button.setOnAction(this);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("I'm anonymous Inner Class");
+
+            }
+        });
 
         StackPane stackPaneLayout = new StackPane();
         stackPaneLayout.getChildren().add(button);
@@ -29,14 +35,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
-
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        if (event.getSource() == button) {
-            System.out.println("Button button pressed ");
-        }
-    }
 }
