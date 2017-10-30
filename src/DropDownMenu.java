@@ -34,7 +34,10 @@ public class DropDownMenu extends Application {
 
         choiceBox.setValue("Fruits");
         
-        button.setOnAction(e-> makeChoice(choiceBox));
+        //button.setOnAction(e-> makeChoice(choiceBox));
+
+        //Listen for selection changes
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> System.out.println(newValue + " " + v));
 
 
 
@@ -51,5 +54,4 @@ public class DropDownMenu extends Application {
         String food = choiceBox.getValue();
         System.out.println(food);
     }
-
 }
