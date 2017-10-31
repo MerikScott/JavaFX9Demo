@@ -1,9 +1,6 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -43,9 +40,22 @@ public class MenuMaker extends Application{
         editMenu.getItems().add(paste);
         paste.setDisable(true);
 
+        // help menu
+        Menu helpMenu = new Menu("_Help"); // _should indicate shortcut
+        CheckMenuItem showLines = new CheckMenuItem("Show line numbers");
+        showLines.setOnAction(e -> {
+            if (showLines.isSelected())
+                System.out.println("Program will now display line numbers");
+            else
+                System.out.println("Hiding the line numbers");
+        });
+        CheckMenuItem autoSave = new CheckMenuItem("Enable Autosave");
+        autoSave.setSelected(true);
+
+        helpMenu.getItems().addAll(showLines, autoSave);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu, editMenu);
+        menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
 
 
         layout = new BorderPane();
