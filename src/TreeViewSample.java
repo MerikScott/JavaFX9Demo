@@ -40,6 +40,12 @@ public class TreeViewSample extends Application{
         tree = new TreeView<>(root);
         tree.setShowRoot(false); //root is just a container, not for show
 
+        tree.getSelectionModel().selectedItemProperty()
+                .addListener((v, oldValue, newValue) -> {
+            if (newValue != null)
+                System.out.println(newValue.getValue());
+                });
+
 
 
         // fruits branch
