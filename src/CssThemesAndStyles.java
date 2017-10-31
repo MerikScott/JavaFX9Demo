@@ -31,6 +31,7 @@ public class CssThemesAndStyles extends Application{
         Label nameLbl = new Label("Username");
         GridPane.setConstraints(nameLbl, 0,0);
         nameLbl.setStyle("-fx-text-fill: antiquewhite");
+        nameLbl.setId("bold-label");
 
         //name input
         TextField nameInput = new TextField("Billy");
@@ -54,14 +55,16 @@ public class CssThemesAndStyles extends Application{
             //setUserAgentStylesheet(STYLESHEET_CASPIAN);
         });
 
-        gridPane.getChildren().addAll(nameLbl, nameInput, passwordLbl, passwordInput, loginButton);
+        Button signUpButton = new Button("Sign Up");
+        signUpButton.getStyleClass().add("button-blue");
+        GridPane.setConstraints(signUpButton,1,3);
+
+        gridPane.getChildren().addAll(nameLbl, nameInput, passwordLbl, passwordInput, loginButton,signUpButton);
 
 
         Scene scene = new Scene(gridPane, 640, 480);
         scene.getStylesheets().add("Viper.css");
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
     }
 }
