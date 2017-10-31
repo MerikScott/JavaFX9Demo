@@ -20,10 +20,11 @@ public class MenuMaker extends Application{
 
         //File menu
         Menu fileMenu = new Menu("File");
-        fileMenu.getItems().add(new MenuItem("New Project..."));
-        fileMenu.getItems().add(new MenuItem("New Module..."));
-        fileMenu.getItems().add(new MenuItem("Import project"));
-        fileMenu.getItems().add(new MenuItem("Quit"));
+        fileMenu.getItems().add(new MenuItem("New..."));
+        fileMenu.getItems().add(new MenuItem("Open..."));
+        fileMenu.getItems().add(new MenuItem("Save..."));
+        fileMenu.getItems().add(new MenuItem("Settings..."));
+        fileMenu.getItems().add(new MenuItem("Exit"));
 
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu);
